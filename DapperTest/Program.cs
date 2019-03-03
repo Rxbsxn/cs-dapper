@@ -24,6 +24,8 @@ namespace DapperTest
   {
     static void Main(string[] args)
     {
+      Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+
       string getPeople = "SELECT * FROM dbo.People;";
       string insertNewPerson = "INSERT INTO dbo.People (FirstName, LastName) VALUES (@FirstName, @LastName)";
       using (var connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C#\DapperTest\DapperTest\Database1.mdf;Integrated Security=True"))
